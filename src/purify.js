@@ -3,8 +3,9 @@
     /* global window: false, define: false, module: false */
     var root = typeof window === 'undefined' ? null : window;
 
+    root.DOMPurify = factory(root);
     if (typeof define === 'function' && define.amd) {
-        define(function(){ return factory(root); });
+        define('DOMPurify', [], function(){ return factory(root); });
     } else if (typeof module !== 'undefined') {
         module.exports = factory(root);
     } else {
